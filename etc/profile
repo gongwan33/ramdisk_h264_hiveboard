@@ -1,0 +1,29 @@
+#set path
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/tslib/bin:/opt/Qt4.8.1/bin:/usr/local/mplayer/bin:/usr/local/alsa/bin
+export PATH
+
+#set library path
+LD_LIBRARY_PATH=/lib:/usr/local/tslib/lib:/opt/Qt4.8.1/lib:/usr/local/mplayer/lib:/usr/local/alsa/lib
+export LD_LIBRARY_PATH
+
+#set language
+#LC_ALL="zh_CN.UTF-8"
+#LANG="zh_CN.UFT-8"
+
+#########for Qt4.8.1###############################
+export QTDIR=/opt/Qt4.8.1          		 #Qt根目录
+export PATH=$QTDIR/bin:$PATH      		 #Qt可执行文件目录
+export QT_QWS_FONTDIR=/opt/Qt4.8.1/lib/fonts     #Qt字体库目录
+export QWE_SIZE=800*480
+export POINTERCAL_FILE=/etc/pointercal
+export QWS_MOUSE_PROTO=Tslib:/dev/event0
+##########for Qt4.8.1###############################
+
+########## for tslib-1.4 ############################
+export TSLIB_ROOT=/usr/local/tslib              #指定tslib路径
+export TSLIB_TSDEVICE=/dev/input/event0        #指定触摸屏对应的驱动设备
+export TSLIB_CALIBFILE=/etc/pointercal           #指定校准文件生成都目录
+export TSLIB_CONFFILE=$TSLIB_ROOT/etc/ts.conf  #指定tslib配置文件
+export TSLIB_PLUGINDIR=$TSLIB_ROOT/lib/ts      #指定tslib数据读取库
+export TSLIB_CONSOLEDEVICE=none                
+export TSLIB_FBDEVICE=/dev/fb0

@@ -1,0 +1,8 @@
+::sysinit:/etc/init.d/rcS
+#::wait:
+#::once:
+::respawn:-/bin/sh
+::askfirst:-/bin/sh
+::shutdown:/bin/umount -a -r
+::restart:/bin/umount -a -r
+::ctrlaltdel:/sbin/reboot

@@ -1,0 +1,48 @@
+#! /bin/sh
+/bin/hostname SEP6200
+
+/bin/mkdir -p /lib/modules/$(uname -r)
+/bin/mkdir -p /dev/pts
+
+/bin/mount -a
+
+/bin/echo /sbin/mdev > /proc/sys/kernel/hotplug
+
+/sbin/mdev -s
+
+/bin/mkdir -p /dev/snd
+[ -e /dev/snd/controlC0 ] || ln -s /dev/controlC0 /dev/snd/controlC0
+[ -e /dev/snd/pcmC0D0p ] || ln -s /dev/pcmC0D0p /dev/snd/pcmC0D0p
+[ -e /dev/snd/pcmC0D0c ] || ln -s /dev/pcmC0D0c /dev/snd/pcmC0D0c
+[ -e /dev/snd/timer ] || ln -s /dev/timer /dev/snd/timer
+
+export LD_LIBRARY_PATH=/lib
+
+ifconfig eth0 192.168.1.44
+ifconfig lo 127.0.0.1
+
+mkdir /tftpDir
+udpsvd -vE 0.0.0.0 69 tftpd -c /tftpDir &
+
+/bin/echo
+/bin/echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+/bin/echo "@                                                                            @"
+/bin/echo "@    #    #  #  #     #  ######  #####     ###       #     #####   ####      @"
+/bin/echo "@    #    #  #  #     #  #       #    #   #   #      #     #    #  #   #     @"
+/bin/echo "@    #    #  #  #     #  #       #    #  #     #    # #    #    #  #    #    @"
+/bin/echo "@    #    #  #   #   #   #       #    #  #     #    # #    #    #  #    #    @"
+/bin/echo "@    ######  #   #   #   ######  #####   #     #   #   #   #####   #    #    @"
+/bin/echo "@    #    #  #    # #    #       #    #  #     #   #   #   #    #  #    #    @"
+/bin/echo "@    #    #  #    # #    #       #    #  #     #   #####   #    #  #    #    @"
+/bin/echo "@    #    #  #     #     #       #    #   #   #   #     #  #    #  #   #     @"
+/bin/echo "@    #    #  #     #     ######  #####     ###    #     #  #    #  ####      @"
+/bin/echo "@                                                                            @"
+/bin/echo "@                        Hiveboard Linux-2.6.32.9 SDK                        @"
+/bin/echo "@                                                                            @"
+/bin/echo "@                                  Hiveboard Global Technology R&D Center    @"
+/bin/echo "@                                          Addrees: Lab NO.606, SEU, Wuxi    @"
+/bin/echo "@                                          Web: http://www.hiveboard.org/    @"
+/bin/echo "@                                                                            @"
+/bin/echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+
+#/bin/pcare

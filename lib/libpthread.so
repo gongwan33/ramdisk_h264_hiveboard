@@ -1,0 +1,5 @@
+/* GNU ld script
+   Use the shared library, but some functions are only in
+   the static library, so try that secondarily.  */
+OUTPUT_FORMAT(elf32-littleunicore32)
+GROUP ( /usr/unicore/gnu-toolchain-unicore/uc4-1.0-beta-hard-RHELAS5/unicore32-linux/lib/libpthread.so.0 /usr/unicore/gnu-toolchain-unicore/uc4-1.0-beta-hard-RHELAS5/unicore32-linux/lib/libpthread_nonshared.a )
